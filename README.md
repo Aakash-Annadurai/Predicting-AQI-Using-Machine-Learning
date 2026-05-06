@@ -1,5 +1,7 @@
 # Predicting Air Quality Index (AQI)
 
+🌟 **Live Application:** [https://predicting-aqi-using-machine-learning.streamlit.app/](https://predicting-aqi-using-machine-learning.streamlit.app/)
+
 A modern, vibrant, and interactive web application to analyze historical air quality trends and predict the Air Quality Index (AQI) based on various pollutant levels. This project was developed by analyzing air quality data across various cities and training a Random Forest Machine Learning model for prediction.
 
 ## Overview
