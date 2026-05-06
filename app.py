@@ -72,12 +72,18 @@ st.markdown("""
 @st.cache_resource
 def load_models():
     try:
+        if not (os.path.exists('models/rf_model.joblib') and os.path.exists('models/scaler.joblib') and os.path.exists('models/encoder.joblib')):
+            with st.spinner("Training models for the first time... This might take a minute."):
+                import train_model
+                train_model.main()
+                st.success("Models trained successfully!")
+        
         rf_model = joblib.load('models/rf_model.joblib')
         scaler = joblib.load('models/scaler.joblib')
         encoder = joblib.load('models/encoder.joblib')
         return rf_model, scaler, encoder
     except Exception as e:
-        st.error(f"Error loading models: {e}. Please ensure 'train_model.py' has been run.")
+        st.error(f"Error loading or training models: {e}.")
         return None, None, None
 
 @st.cache_data
